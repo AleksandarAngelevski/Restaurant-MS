@@ -1,0 +1,21 @@
+{
+  "Tables": "Маси",
+  "Orders": "Нарачки",
+  "Kitchen": "Кујна",
+  "Reservations": "Резервации",
+  "Menus": "Менија",
+  "Discounts": "Попусти",
+  "Products": "Производи",
+  "Inventory": "Залиха",
+  "Analytics": "Аналитика",
+  "Staff": "Персонал",
+  "Settings": "Поставки",
+  "Sign in": "Најава",
+  "Sign out": "Одјава",
+  "E-mail": "Е-пошта",
+  "Password": "Лозинка",
+  "Save": "Зачувај",
+  "Cancel": "Откажи",
+  "Delete": "Избриши",
+  "Edit": "Измени"
+}
