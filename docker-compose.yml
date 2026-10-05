@@ -1,0 +1,47 @@
+name: restaurantms
+
+services:
+  db:
+    image: postgres:16
+    environment:
+      POSTGRES_DB: ${DB_NAME:-rms}
+      POSTGRES_USER: ${DB_USER:-rms}
+      POSTGRES_PASSWORD: ${DB_PASSWORD:-rms}
+    ports:
+      - "${DB_PORT:-5432}:5432"
+    volumes:
+      - rms-db:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U ${DB_USER:-rms} -d ${DB_NAME:-rms}"]
+      interval: 3s
+      timeout: 3s
+      retries: 20
+
+  backend:
+    build:
+      context: .
+      dockerfile: backend/Dockerfile
+    environment:
+      DB_HOST: db
+      DB_PORT: 5432
+      DB_NAME: ${DB_NAME:-rms}
+      DB_USER: ${DB_USER:-rms}
+      DB_PASSWORD: ${DB_PASSWORD:-rms}
+      APP_DEMO_SEED: ${APP_DEMO_SEED:-true}
+      JWT_SECRET: ${JWT_SECRET:-local-dev-secret-change-me-0123456789abcdef}
+    ports:
+      - "${BACKEND_PORT:-8080}:8080"
+    depends_on:
+      db:
+        condition: service_healthy
+
+  frontend:
+    build:
+      context: frontend
+    ports:
+      - "${FRONTEND_PORT:-5173}:80"
+    depends_on:
+      - backend
+
+volumes:
+  rms-db:
