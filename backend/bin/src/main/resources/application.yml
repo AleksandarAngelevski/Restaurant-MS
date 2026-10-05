@@ -1,0 +1,25 @@
+spring:
+  application:
+    name: rms
+  datasource:
+    url: jdbc:postgresql://${DB_HOST:localhost}:${DB_PORT:5432}/${DB_NAME:rms}
+    username: ${DB_USER:rms}
+    password: ${DB_PASSWORD:rms}
+  flyway:
+    locations: classpath:db/migration
+  jackson:
+    serialization:
+      write-dates-as-timestamps: false
+
+server:
+  port: ${SERVER_PORT:8080}
+
+app:
+  # load db/dev/demo_seed.sql on startup when the database has no employees
+  demo-seed: ${APP_DEMO_SEED:false}
+  jwt:
+    secret: ${JWT_SECRET:local-dev-secret-change-me-0123456789abcdef}
+    ttl-hours: ${JWT_TTL_HOURS:12}
+  tax-rate: ${TAX_RATE:0.18}
+  low-stock-threshold: ${LOW_STOCK_THRESHOLD:500}
+  analytics-refresh-ms: ${ANALYTICS_REFRESH_MS:60000}
