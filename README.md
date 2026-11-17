@@ -1,6 +1,7 @@
 # RestaurantMS
 
-Vibe coded project form our Advanced Databases course project notes and planning
+RestaurantMS is a vibe-coded implementation of our Advanced Databases course project, built using the database schema and project planning documentation as the foundation. The software solution translates the planned database structure and business requirements into a functional restaurant management system.
+
 
 Restaurant management system for the FINKI Advanced Databases course (2025/2026): a PostgreSQL
 database that owns the business rules, a Spring Boot API that calls its stored procedures, and a
