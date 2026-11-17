@@ -1,5 +1,7 @@
 # RestaurantMS
 
+Vibe coded project form our Advanced Databases course project notes and planning
+
 Restaurant management system for the FINKI Advanced Databases course (2025/2026): a PostgreSQL
 database that owns the business rules, a Spring Boot API that calls its stored procedures, and a
 React front end for waiters, kitchen, hosts, managers and admins.
